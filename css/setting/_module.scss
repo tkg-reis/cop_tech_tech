@@ -1,0 +1,114 @@
+// module
+@use 'variable' as var;
+@use 'breakpoints' as bp;
+@use 'mixin' as min;
+
+.m_topToBtn {
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+    font-size: 36px;
+    cursor: pointer;
+    z-index: 10000;
+    transition: all .25s;
+    opacity: 0;
+
+    @include bp.mq() {
+        font-size: 48px;    
+    }
+}
+
+.m_work {
+    
+    &__boxes {
+        position: sticky;
+        top: 10%;
+    }
+
+    &__box {
+        @include min.flex();
+        flex-direction: column;
+
+        &:not(:first-child) {
+            margin-top: 2rem;
+        }
+
+        & > h2,span,p ,div {
+            margin-top: .5rem;
+            font-size: 1rem;
+            white-space: nowrap;
+
+            @include bp.mq() {
+                opacity: .4;
+            }
+
+        }
+        
+        & > h2, span {
+            font-weight: bold;
+        }
+
+        // &.active {
+        //     opacity: 1;
+        //     transform: scale(1.5);
+        // }
+    }
+
+    &_flex {
+
+        &__boxes__ttl {
+            text-align: center;
+            margin: 3rem 0 ;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        &__boxes {
+            @include min.flex();
+            flex-wrap: nowrap;
+            flex-direction: column;
+
+            @include bp.mq() {
+                flex-direction: row;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                gap: 2.5rem;
+                margin-top: 0;
+            }
+        }
+
+        &__box {
+            box-shadow: 2px 2px 5px var.$black-color;
+
+            @include bp.mq() {
+                width: 40%;
+            }
+
+            &:not(:first-child) {
+                margin-top: 1.8rem;
+                
+                @include bp.mq() {
+                    margin-top: 0px;
+                }
+            }
+        }
+
+        &__imgbox {
+            width: 100%;
+        }
+
+        &__ttl {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: .5rem;
+            padding: .3rem;
+        }
+
+        &__txt {
+            margin-top: .1rem;
+            padding: .3rem;
+        }
+    }
+}
+
+// end
